@@ -34,7 +34,7 @@ public class Book implements Serializable
 
   @Override public String toString()
   {
-    return "Title='" + title + '\'' + ", Writer='" + writer;
+    return "Title: " + title + '\'' + ", Writer: " + writer;
 
   }
 }

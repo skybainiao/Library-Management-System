@@ -7,16 +7,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Dialog;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.stage.Popup;
-
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.logging.ErrorManager;
 
-public class Controller
+public class ManagerController
 {
   private Adapter adapter = new Adapter("book.bin");
   private BookList bookList = adapter.getBookList();
@@ -39,7 +34,7 @@ public class Controller
   @FXML
   private ListView<Book> listView = new ListView<>();
 
-  public Controller(){
+  public void init(){
     getAllBooks();
   }
 
