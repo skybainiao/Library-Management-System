@@ -6,11 +6,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class GetStart extends Application
-{
+public class GetStart extends Application {
 
-  @Override public void start(Stage stage) throws Exception
-  {
+  @Override public void start(Stage stage) throws Exception {
     ViewHandler viewHandler = new ViewHandler();
     viewHandler.openManagerView();
 

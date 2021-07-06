@@ -3,8 +3,7 @@ package Model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class BookList implements Serializable
-{
+public class BookList implements Serializable{
   private ArrayList<Book> books;
 
   public BookList(){
@@ -22,8 +21,7 @@ public class BookList implements Serializable
   public String getStringBooks(){
     String returnStr = "";
 
-    for(int i = 0; i<books.size(); i++)
-    {
+    for(int i = 0; i<books.size(); i++) {
       Book temp = books.get(i);
 
       returnStr += temp +"\n";

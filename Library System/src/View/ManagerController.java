@@ -6,21 +6,29 @@ import Model.BookList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+
+import javax.swing.*;
 import java.io.IOException;
 
-public class ManagerController
-{
-  private Adapter adapter = new Adapter("book.bin");
-  private BookList bookList = adapter.getBookList();
+public class ManagerController {
+  private Adapter adapter = new Adapter("library.bin");
+  private BookList bookList;
 
   @FXML
   private TextField title;
 
   @FXML
   private TextField writer;
+
+  @FXML
+  private TextField releaseTime;
+
+  @FXML
+  private TextField status;
+
+  @FXML
+  private ChoiceBox bookStatus;
 
   @FXML
   private Button save;
@@ -32,32 +40,53 @@ public class ManagerController
   private Button deleteBooks;
 
   @FXML
-  private ListView<Book> listView = new ListView<>();
+  private ListView<Book> listView;
+
+  @FXML
+  private TableView<Book> bookTableView;
+
+  @FXML
+  private TableColumn<Book,String> bookTitle;
+
+  @FXML
+  private TableColumn<Book,String> bookWriter;
+
+  @FXML
+  private TableColumn<Book,String> bookReleaseTime;
+
+  @FXML
+  private TableColumn<Book,String> statusOfBook;
+
 
   public void init(){
+    bookStatus.getItems().addAll("Booked","Borrowed");
+    bookStatus.getSelectionModel().selectFirst();
+    bookList = adapter.getBookList();
     getAllBooks();
   }
 
 
-  public void addBook() throws IOException
-  {
+  public void addBook() throws IOException {
     if (!title.getText().equals("") && !writer.getText().equals("")){
-      Book book = new Book(title.getText(),writer.getText());
+      Book book = new Book(title.getText(),writer.getText(),releaseTime.getText(),
+              bookStatus.getSelectionModel().getSelectedItem().toString(),
+              null,null,null,null,null);
+
       bookList.addBook(book);
-      adapter.addBookList("book.bin",bookList);
+      adapter.addBookList(bookList);
       getAllBooks();
       title.setText("");
       writer.setText("");
+      releaseTime.setText("");
     }
     else {
-      //Dialog here
+      JOptionPane.showMessageDialog(null,"Invalid title or writer");
     }
 
   }
 
 
-  public void getAllBooks()
-  {
+  public void getAllBooks() {
     ObservableList<Book> books = FXCollections.observableArrayList();
     books.addAll(adapter.getBookList().getBooks());
     listView.setItems(books);
@@ -65,8 +94,7 @@ public class ManagerController
   }
 
 
-  public void deleteBook() throws IOException
-  {
+  public void deleteBook() throws IOException {
     listView.setEditable(true);
     Book book = listView.getSelectionModel().getSelectedItem();
     if (book != null){
@@ -78,10 +106,15 @@ public class ManagerController
       }
     }
     else {
-      //Error Dialog
+      JOptionPane.showMessageDialog(null,"Please select an item");
     }
-    adapter.addBookList("book.bin",bookList);
+    adapter.addBookList(bookList);
     getAllBooks();
+
+  }
+
+
+  public void changeBook(){
 
   }
 

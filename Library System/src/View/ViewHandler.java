@@ -7,8 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ViewHandler
-{
+public class ViewHandler {
 
   private Stage mainStage;
 
