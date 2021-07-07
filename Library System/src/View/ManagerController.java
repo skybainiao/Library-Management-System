@@ -15,10 +15,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class ManagerController {
-  private Adapter adapter = new Adapter("library.bin");
-  private Adapter adapter1 = new Adapter("Article.bin");
+  private Adapter adapter;
+
+  private Adapter adapter1;
 
   private BookList bookList;
+
   private ArticleList articleList;
 
   @FXML
@@ -119,6 +121,8 @@ public class ManagerController {
     articleS.setText("Search");
     bookStatus.getItems().addAll("Booked","Borrowed");
     artBox.getItems().addAll("Booked","Borrowed");
+    adapter = new Adapter("library.bin");
+    adapter1 = new Adapter("Article.bin");
     bookList = adapter.getBookList();
     articleList = adapter1.getArticleList();
     bookTableView.setEditable(true);
