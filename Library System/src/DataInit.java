@@ -1,8 +1,5 @@
 import File.Adapter;
-import Model.Article;
-import Model.ArticleList;
-import Model.Book;
-import Model.BookList;
+import Model.*;
 
 import java.io.IOException;
 
@@ -35,5 +32,27 @@ public class DataInit {
 
     adapter1.addArticleList(articleList);
     System.out.println(adapter1.getArticleList().getArticles());
+
+    // TODO: 07/07/2021 This is CDDataInit
+    Adapter adapter2 = new Adapter("CD.bin");
+
+    CDList cdList = new CDList();
+
+    CD cd = new CD("exile","Booked");
+    CD cd1 = new CD("Burn","Borrowed");
+    CD cd2 = new CD("Breathe","Booked");
+    CD cd3 = new CD("Past Lives","Booked");
+    CD cd4 = new CD("Freaks","Booked");
+    CD cd5 = new CD("Closer","Booked");
+
+    cdList.addCD(cd);
+    cdList.addCD(cd1);
+    cdList.addCD(cd2);
+    cdList.addCD(cd3);
+    cdList.addCD(cd4);
+    cdList.addCD(cd5);
+
+    adapter2.addCDList(cdList);
+    System.out.println(adapter2.getCDList().getCdArrayList());
   }
 }

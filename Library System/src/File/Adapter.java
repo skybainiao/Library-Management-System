@@ -2,6 +2,8 @@ package File;
 
 import Model.ArticleList;
 import Model.BookList;
+import Model.CDList;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -61,6 +63,28 @@ public class Adapter{
 
   public void addArticleList(ArticleList articleList) throws IOException {
     myFileIO.write(fileName,articleList);
+  }
+
+
+  public CDList getCDList(){
+    CDList cdList = new CDList();
+
+    try {
+      cdList = (CDList) myFileIO.read(fileName);
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    } catch (IOException e) {
+      e.printStackTrace();
+    } catch (ClassNotFoundException e) {
+      e.printStackTrace();
+    }
+    return cdList;
+
+  }
+
+
+  public void addCDList(CDList cdList) throws IOException {
+    myFileIO.write(fileName,cdList);
   }
 
 }
