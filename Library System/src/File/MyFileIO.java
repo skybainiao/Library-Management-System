@@ -28,7 +28,6 @@ public class MyFileIO {
   }
 
 
-
   public Object read(String fileName) throws FileNotFoundException, IOException, ClassNotFoundException {
     Object obj = null;
     ObjectInputStream readFromFile = null;
@@ -56,40 +55,5 @@ public class MyFileIO {
     return obj;
   }
 
-
-  public Object[] readArrayFromFile(String fileName) throws FileNotFoundException, IOException, ClassNotFoundException {
-    ArrayList<Object> objs = new ArrayList<Object>();
-
-    ObjectInputStream readFromFile = null;
-    try {
-      FileInputStream fileInStream = new FileInputStream(fileName);
-      readFromFile = new ObjectInputStream(fileInStream);
-      while (true) {
-        try {
-          objs.add(readFromFile.readObject());
-        }
-        catch (EOFException eof) {
-          //Done reading
-          break;
-        }
-      }
-    }
-    finally {
-      if (readFromFile != null) {
-        try {
-          readFromFile.close();
-        }
-        catch (IOException e) {
-          System.out.println("IO Error closing file " + fileName);
-        }
-      }
-    }
-
-    return objs.toArray();
-  }
-
-  public void del(){
-
-  }
 
 }

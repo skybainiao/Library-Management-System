@@ -5,7 +5,6 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="jdk" jdkName="11" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="javafx" level="application" />
     <orderEntry type="library" exported="" name="JavaFX" level="application" />
   </component>
 </module>

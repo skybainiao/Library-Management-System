@@ -3,18 +3,69 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="637.0" prefWidth="1066.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ManagerController">
    <children>
-      <TextField fx:id="title" layoutX="810.0" layoutY="66.0" />
-      <TextField fx:id="writer" layoutX="810.0" layoutY="119.0" />
-      <Button fx:id="save" layoutX="849.0" layoutY="305.0" mnemonicParsing="false" onAction="#addBook" prefHeight="25.0" prefWidth="96.0" text="Save" />
-      <Button fx:id="getAllBooks" layoutX="849.0" layoutY="355.0" mnemonicParsing="false" onAction="#getAllBooks" prefHeight="25.0" prefWidth="96.0" text="Get" />
-      <ListView fx:id="listView" layoutX="23.0" layoutY="29.0" prefHeight="592.0" prefWidth="603.0" />
-      <Button fx:id="deleteBooks" layoutX="849.0" layoutY="418.0" mnemonicParsing="false" onAction="#deleteBook" prefHeight="25.0" prefWidth="96.0" text="del" />
-      <TextField fx:id="releaseTime" layoutX="810.0" layoutY="167.0" />
-      <ChoiceBox fx:id="bookStatus" layoutX="810.0" layoutY="216.0" prefHeight="27.0" prefWidth="161.0" />
+      <TabPane layoutY="1.0" prefHeight="750.0" prefWidth="1138.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="        Book        ">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="649.0" prefWidth="1011.0">
+                     <children>
+                        <Button fx:id="search" layoutX="709.0" layoutY="14.0" mnemonicParsing="false" onAction="#searchBook" prefHeight="27.0" prefWidth="144.0" text="Search" />
+                        <TextField fx:id="title" layoutX="915.0" layoutY="117.0" promptText="Title" />
+                        <TextField fx:id="writer" layoutX="915.0" layoutY="185.0" promptText="Author" />
+                        <TextField fx:id="releaseTime" layoutX="915.0" layoutY="253.0" promptText="ReleaseTime" />
+                        <TextField fx:id="ISBN" layoutX="915.0" layoutY="318.0" promptText="ISBN" />
+                        <ChoiceBox fx:id="bookStatus" layoutX="915.0" layoutY="383.0" prefHeight="27.0" prefWidth="161.0" />
+                        <Button fx:id="save" layoutX="927.0" layoutY="465.0" mnemonicParsing="false" onAction="#addBook" prefHeight="27.0" prefWidth="137.0" text="Save" />
+                        <Button fx:id="change" layoutX="927.0" layoutY="537.0" mnemonicParsing="false" onAction="#changeBook" prefHeight="27.0" prefWidth="137.0" text="Edit" />
+                        <Button fx:id="deleteBooks" layoutX="927.0" layoutY="609.0" mnemonicParsing="false" onAction="#deleteBook" prefHeight="27.0" prefWidth="137.0" text="Del" />
+                        <Button fx:id="getAllBooks" layoutX="10.0" layoutY="14.0" mnemonicParsing="false" onAction="#getAllBooks" prefHeight="27.0" prefWidth="131.0" text="Refresh" />
+                        <TableView fx:id="bookTableView" layoutX="10.0" layoutY="51.0" prefHeight="652.0" prefWidth="843.0">
+                          <columns>
+                            <TableColumn fx:id="bookTitle" prefWidth="201.0" text="Title" />
+                            <TableColumn fx:id="bookWriter" minWidth="0.0" prefWidth="203.0" text="Author" />
+                              <TableColumn fx:id="bookReleaseTime" prefWidth="149.0" text="ReleaseTime" />
+                              <TableColumn fx:id="statusOfBook" prefWidth="127.0" text="Status" />
+                              <TableColumn fx:id="isbn" prefWidth="162.0" text="ISBN" />
+                          </columns>
+                        </TableView>
+                        <TextField fx:id="searchText" layoutX="214.0" layoutY="14.0" prefHeight="27.0" prefWidth="476.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="        Article       ">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="articleFresh" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#getAllArticles" prefHeight="27.0" prefWidth="122.0" text="Refresh" />
+                        <TextField fx:id="articleST" layoutX="215.0" layoutY="14.0" prefHeight="27.0" prefWidth="486.0" />
+                        <Button fx:id="articleS" layoutX="714.0" layoutY="14.0" mnemonicParsing="false" onAction="#searchArticle" prefHeight="27.0" prefWidth="142.0" text="Search" />
+                        <TextField fx:id="artTT" layoutX="923.0" layoutY="149.0" promptText="Title" />
+                        <TextField fx:id="artWT" layoutX="923.0" layoutY="230.0" promptText="Writer" />
+                        <TextField fx:id="artRelTimeT" layoutX="923.0" layoutY="308.0" promptText="ReleaseTime" />
+                        <ChoiceBox fx:id="artBox" layoutX="929.0" layoutY="386.0" prefWidth="150.0" />
+                        <Button fx:id="artSave" layoutX="950.0" layoutY="466.0" mnemonicParsing="false" onAction="#addArticle" prefHeight="27.0" prefWidth="108.0" text="Save" />
+                        <Button fx:id="artEdit" layoutX="951.0" layoutY="536.0" mnemonicParsing="false" onAction="#changeArticle" prefHeight="27.0" prefWidth="106.0" text="Edit" />
+                        <Button fx:id="artDel" layoutX="951.0" layoutY="611.0" mnemonicParsing="false" onAction="#deleteArticle" prefHeight="27.0" prefWidth="105.0" text="Del" />
+                        <ListView fx:id="articleListView" layoutX="14.0" layoutY="49.0" prefHeight="657.0" prefWidth="843.0" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="    CD&amp;DVD    ">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
    </children>
 </AnchorPane>

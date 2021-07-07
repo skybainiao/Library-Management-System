@@ -7,14 +7,24 @@ public class Book extends Borrower implements Serializable {
   private String writer;
   private String releaseTime;
   private String status;
+  private String ISBN;
 
-  public Book(String title,String writer,String releaseTime,String status,String name,String email,String identity,String borrowTime,String returnTime){
+  public Book(String title,String writer,String releaseTime,String status,String name,String email,String identity,String borrowTime,String returnTime,String ISBN){
     super(name, email, identity, borrowTime, returnTime);
     this.title=title;
     this.writer=writer;
     this.releaseTime=releaseTime;
     this.status=status;
+    this.ISBN=ISBN;
 
+  }
+
+  public void setISBN(String ISBN) {
+    this.ISBN = ISBN;
+  }
+
+  public String getISBN() {
+    return ISBN;
   }
 
   public void setStatus(String status) {
