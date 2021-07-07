@@ -9,11 +9,17 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javax.swing.*;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class ManagerController {
+
   private Adapter adapter;
 
   private Adapter adapter1;
@@ -182,8 +188,44 @@ public class ManagerController {
   @FXML
   private Button img6But;
 
+  @FXML
+  private TextField img1TF;
+
+  @FXML
+  private TextField img2TF;
+
+  @FXML
+  private TextField img3TF;
+
+  @FXML
+  private TextField img4TF;
+
+  @FXML
+  private TextField img5TF;
+
+  @FXML
+  private TextField img6TF;
+
+  @FXML
+  private ImageView imgA;
+
+  @FXML
+  private ImageView imgB;
+
+  @FXML
+  private ImageView imgC;
+
+  @FXML
+  private ImageView imgD;
+
+  @FXML
+  private ImageView imgE;
+
+  @FXML
+  private ImageView imgF;
 
 
+  //initialization
   public void init(){
     save.setText("Save");
     getAllBooks.setText("GetAll");
@@ -225,10 +267,11 @@ public class ManagerController {
     getAllBooks();
     getAllArticles();
     setAllCDs();
-    changeCDStatus();
+    changeCDInfo();
   }
 
 
+  //add book to book.bin
   public void addBook() throws IOException {
     if (!title.getText().equals("") && !writer.getText().equals("")){
       if (bookStatus.getSelectionModel().getSelectedItem().toString()!= null){
@@ -252,6 +295,7 @@ public class ManagerController {
   }
 
 
+  //set books to TableView
   public void getAllBooks() {
     ObservableList<Book> books = FXCollections.observableArrayList();
     books.addAll(adapter.getBookList().getBooks());
@@ -260,6 +304,7 @@ public class ManagerController {
   }
 
 
+  //choose a book and delete
   public void deleteBook() throws IOException {
     Book book = bookTableView.getSelectionModel().getSelectedItem();
     if (book != null){
@@ -279,6 +324,7 @@ public class ManagerController {
   }
 
 
+  //edit the information of the selected book
   public void changeBook(){
     Book book = bookTableView.getSelectionModel().getSelectedItem();
     if (book != null){
@@ -296,6 +342,7 @@ public class ManagerController {
   }
 
 
+  //search book by bookTitle and bookWriter
   public void searchBook(){
     if (searchText.getText() != null){
       for (int i = 0; i < bookList.getBooks().size(); i++) {
@@ -316,6 +363,7 @@ public class ManagerController {
   }
 
 
+  //add article to article.bin
   public void addArticle() throws IOException {
     if (!artTT.getText().equals("") && !artWT.getText().equals("") && !artRelTimeT.getText().equals("")){
       Article article = new Article(artTT.getText(),artWT.getText(),artRelTimeT.getText(),
@@ -333,6 +381,7 @@ public class ManagerController {
   }
 
 
+  //set articles to articleListView
   public void getAllArticles(){
     ObservableList<Article> articles = FXCollections.observableArrayList();
     articles.addAll(adapter1.getArticleList().getArticles());
@@ -340,6 +389,7 @@ public class ManagerController {
   }
 
 
+  //delete an article by selected one
   public void deleteArticle() throws IOException {
     Article article = articleListView.getSelectionModel().getSelectedItem();
     if (article != null){
@@ -359,6 +409,7 @@ public class ManagerController {
   }
 
 
+  //edit info of article
   public void changeArticle(){
     Article article = articleListView.getSelectionModel().getSelectedItem();
     if (article != null){
@@ -377,6 +428,7 @@ public class ManagerController {
   }
 
 
+  //search article in article.bin by title and writer
   public void searchArticle(){
     if (articleST.getText() != null){
       for (int i = 0; i < articleList.getArticles().size(); i++) {
@@ -397,6 +449,7 @@ public class ManagerController {
   }
 
 
+  //cdData initialization
   public void setAllCDs(){
       for (int i = 0; i < cdList.getCdArrayList().size(); i++) {
           if (cdList.getCdArrayList().get(i) != null){
@@ -417,49 +470,185 @@ public class ManagerController {
   }
 
 
-  public void changeCDStatus(){
+  //edit info of cds
+  public void changeCDInfo(){
     img1But.setOnAction(new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent actionEvent) {
-        labelA1.setText(img1.getSelectionModel().getSelectedItem().toString());
+        if (img1TF != null){
+          labelA.setText(img1TF.getText());
+        }
+        try {
+          labelA1.setText(img1.getSelectionModel().getSelectedItem().toString());
+        }
+        catch (Exception e){
+          JOptionPane.showMessageDialog(null,"Please select status");
+        }
+        img1TF.setText("");
       }
     });
 
     img2But.setOnAction(new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent actionEvent) {
-        labelB1.setText(img2.getSelectionModel().getSelectedItem().toString());
+        if (img2TF != null){
+          labelB.setText(img2TF.getText());
+        }
+        try {
+          labelB1.setText(img2.getSelectionModel().getSelectedItem().toString());
+        }
+        catch (Exception e){
+          JOptionPane.showMessageDialog(null,"Please select status");
+        }
+        img2TF.setText("");
       }
     });
 
     img3But.setOnAction(new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent actionEvent) {
-        labelC1.setText(img3.getSelectionModel().getSelectedItem().toString());
+        if (img3TF != null){
+          labelC.setText(img3TF.getText());
+        }
+        try {
+          labelC1.setText(img3.getSelectionModel().getSelectedItem().toString());
+        }
+        catch (Exception e){
+          JOptionPane.showMessageDialog(null,"Please select status");
+        }
+        img3TF.setText("");
       }
     });
 
     img4But.setOnAction(new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent actionEvent) {
-        labelD1.setText(img4.getSelectionModel().getSelectedItem().toString());
+        if (img4TF != null){
+          labelD.setText(img4TF.getText());
+        }
+        try {
+          labelD1.setText(img4.getSelectionModel().getSelectedItem().toString());
+        }
+        catch (Exception e){
+          JOptionPane.showMessageDialog(null,"Please select status");
+        }
+        img4TF.setText("");
       }
     });
 
     img5But.setOnAction(new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent actionEvent) {
-        labelE1.setText(img5.getSelectionModel().getSelectedItem().toString());
+        if (img5TF != null){
+          labelE.setText(img5TF.getText());
+        }
+        try {
+          labelE1.setText(img5.getSelectionModel().getSelectedItem().toString());
+        }
+        catch (Exception e){
+          JOptionPane.showMessageDialog(null,"Please select status");
+        }
+        img5TF.setText("");
       }
     });
 
     img6But.setOnAction(new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent actionEvent) {
-        labelF1.setText(img6.getSelectionModel().getSelectedItem().toString());
+        if (img6TF != null){
+          labelF.setText(img6TF.getText());
+        }
+        try {
+          labelF1.setText(img6.getSelectionModel().getSelectedItem().toString());
+        }
+        catch (Exception e){
+          JOptionPane.showMessageDialog(null,"Please select status");
+        }
+        img6TF.setText("");
       }
     });
 
+  }
+
+
+  //choose image from location
+  public Image getImage(){
+    FileChooser fileChooser = new FileChooser();
+    File file = fileChooser.showOpenDialog(new Stage());
+    Image image = new Image("file:"+file.getAbsolutePath());
+
+    return image;
+  }
+
+
+  //set img1
+  public void chooseImg1(){
+    try {
+      imgA.setImage(getImage());
+    }
+    catch (Exception e){
+      System.out.println("No picture is set");
+    }
+
+  }
+
+
+  //set img2
+  public void chooseImg2(){
+    try {
+      imgB.setImage(getImage());
+    }
+    catch (Exception e){
+      System.out.println("No picture is set");
+    }
+
+  }
+
+
+  //set img3
+  public void chooseImg3(){
+    try {
+      imgC.setImage(getImage());
+    }
+    catch (Exception e){
+      System.out.println("No picture is set");
+    }
+
+  }
+
+
+  //set img4
+  public void chooseImg4(){
+    try {
+      imgD.setImage(getImage());
+    }
+    catch (Exception e){
+      System.out.println("No picture is set");
+    }
+
+  }
+
+
+  //set img5
+  public void chooseImg5(){
+    try {
+      imgE.setImage(getImage());
+    }
+    catch (Exception e){
+      System.out.println("No picture is set");
+    }
+
+  }
+
+
+  //set img6
+  public void chooseImg6(){
+    try {
+      imgF.setImage(getImage());
+    }
+    catch (Exception e){
+      System.out.println("No picture is set");
+    }
 
   }
 

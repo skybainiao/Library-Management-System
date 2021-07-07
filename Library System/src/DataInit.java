@@ -10,7 +10,7 @@ public class DataInit {
 
     BookList bookList = new BookList();
 
-    Book book = new Book("a","a","12","released",null,null,null,null,null,"1232134256");
+    Book book = new Book("Anna Karenina","Leo Tolstoy","12","released",null,null,null,null,null,"1232134256");
     Book book1 = new Book("a","b","12","released",null,null,null,null,null,"3214");
     Book book2 = new Book("1","b","12","released",null,null,null,null,null,"32142");
     bookList.addBook(book);
