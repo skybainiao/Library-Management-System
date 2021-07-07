@@ -204,8 +204,8 @@ public class ManagerController {
   public void searchBook(){
     if (searchText.getText() != null){
       for (int i = 0; i < bookList.getBooks().size(); i++) {
-        if (bookList.getBooks().get(i).getTitle().contains(searchText.getText()) ||
-                bookList.getBooks().get(i).getWriter().contains(searchText.getText())){
+        if (bookList.getBooks().get(i).getTitle().equals(searchText.getText()) ||
+                bookList.getBooks().get(i).getWriter().equals(searchText.getText())){
           ArrayList<Book> bookArrayList = new ArrayList<>();
           bookArrayList.add(bookList.getBooks().get(i));
           ObservableList books = FXCollections.observableArrayList();
@@ -285,13 +285,13 @@ public class ManagerController {
   public void searchArticle(){
     if (articleST.getText() != null){
       for (int i = 0; i < articleList.getArticles().size(); i++) {
-        if (articleList.getArticles().get(i).getTitle().contains(articleST.getText()) ||
-                articleList.getArticles().get(i).getWriter().contains(articleST.getText())){
+        if (articleList.getArticles().get(i).getTitle().equals(articleST.getText()) ||
+                articleList.getArticles().get(i).getWriter().equals(articleST.getText())){
           ArrayList<Article> articlesArrayList = new ArrayList<>();
           articlesArrayList.add(articleList.getArticles().get(i));
           ObservableList articles = FXCollections.observableArrayList();
           articles.addAll(articlesArrayList);
-          bookTableView.setItems(articles);
+          articleListView.setItems(articles);
           articleST.setText("");
         }
       }

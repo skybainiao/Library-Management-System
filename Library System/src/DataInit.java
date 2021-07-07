@@ -6,7 +6,7 @@ import Model.BookList;
 
 import java.io.IOException;
 
-public class Test {
+public class DataInit {
   public static void main(String[] args) throws IOException {
     // TODO: 07/07/2021 This is BookDataInit
     Adapter adapter = new Adapter("library.bin");
