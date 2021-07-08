@@ -59,6 +59,5 @@ public class DataInit {
         System.out.println(bookList.getBooks().get(i));
       }
     }
-
   }
 }

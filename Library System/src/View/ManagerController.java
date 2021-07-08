@@ -698,4 +698,6 @@ public class ManagerController {
     artRelTimeT.setText("");
   }
 
+
+
 }
