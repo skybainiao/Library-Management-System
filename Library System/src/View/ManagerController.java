@@ -507,7 +507,7 @@ public class ManagerController {
       @Override
       public void handle(ActionEvent actionEvent) {
         if (img1TF != null){
-          labelA.setText(img1TF.getText());
+          labelA.setText("< "+img1TF.getText()+" >");
         }
         try {
           labelA1.setText(img1.getSelectionModel().getSelectedItem().toString());
