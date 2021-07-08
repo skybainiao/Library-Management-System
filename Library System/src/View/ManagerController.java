@@ -347,14 +347,16 @@ public class ManagerController {
     if (searchText.getText() != null){
       for (int i = 0; i < bookList.getBooks().size(); i++) {
         if (bookList.getBooks().get(i).getTitle().equals(searchText.getText()) ||
-                bookList.getBooks().get(i).getWriter().equals(searchText.getText())){
+                bookList.getBooks().get(i).getWriter().equals(searchText.getText()) ||
+                bookList.getBooks().get(i).getISBN().equals(searchText.getText()) ||
+                bookList.getBooks().get(i).getReleaseTime().equals(searchText.getText())) {
           ArrayList<Book> bookArrayList = new ArrayList<>();
           bookArrayList.add(bookList.getBooks().get(i));
           ObservableList books = FXCollections.observableArrayList();
           books.addAll(bookArrayList);
           bookTableView.setItems(books);
-          searchText.setText("");
         }
+        searchText.setText("");
       }
     }
     else {
@@ -366,14 +368,19 @@ public class ManagerController {
   //add article to article.bin
   public void addArticle() throws IOException {
     if (!artTT.getText().equals("") && !artWT.getText().equals("") && !artRelTimeT.getText().equals("")){
-      Article article = new Article(artTT.getText(),artWT.getText(),artRelTimeT.getText(),
-              artBox.getSelectionModel().getSelectedItem().toString(),
-              null,null,null,null,null);
+      if (artBox.getSelectionModel().getSelectedItem() != null){
+        Article article = new Article(artTT.getText(),artWT.getText(),artRelTimeT.getText(),
+                artBox.getSelectionModel().getSelectedItem().toString(),
+                null,null,null,null,null);
 
-      articleList.add(article);
-      adapter1.addArticleList(articleList);
-      getAllArticles();
-      artClear();
+        articleList.add(article);
+        adapter1.addArticleList(articleList);
+        getAllArticles();
+        artClear();
+      }
+      else {
+        JOptionPane.showMessageDialog(null,"please select status");
+      }
     }
     else {
       JOptionPane.showMessageDialog(null,"TextField can not be null");
@@ -433,14 +440,15 @@ public class ManagerController {
     if (articleST.getText() != null){
       for (int i = 0; i < articleList.getArticles().size(); i++) {
         if (articleList.getArticles().get(i).getTitle().equals(articleST.getText()) ||
-                articleList.getArticles().get(i).getWriter().equals(articleST.getText())){
+                articleList.getArticles().get(i).getWriter().equals(articleST.getText()) ||
+                articleList.getArticles().get(i).getReleaseTime().equals(articleST.getText())){
           ArrayList<Article> articlesArrayList = new ArrayList<>();
           articlesArrayList.add(articleList.getArticles().get(i));
           ObservableList articles = FXCollections.observableArrayList();
           articles.addAll(articlesArrayList);
           articleListView.setItems(articles);
-          articleST.setText("");
         }
+        articleST.setText("");
       }
     }
     else {
@@ -466,7 +474,7 @@ public class ManagerController {
             labelF.setText(cdList.getCdArrayList().get(5).getName());
             labelF.setText(cdList.getCdArrayList().get(5).getStatus());
           }
-    }
+      }
   }
 
 

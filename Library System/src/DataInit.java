@@ -10,9 +10,9 @@ public class DataInit {
 
     BookList bookList = new BookList();
 
-    Book book = new Book("Anna Karenina","Leo Tolstoy","12","released",null,null,null,null,null,"1232134256");
-    Book book1 = new Book("a","b","12","released",null,null,null,null,null,"3214");
-    Book book2 = new Book("1","b","12","released",null,null,null,null,null,"32142");
+    Book book = new Book("Anna Karenina","Leo Tolstoy","1798","released",null,null,null,null,null,"1232134256");
+    Book book1 = new Book("Madame Bovary","Gustave Flaubert","1867","released",null,null,null,null,null,"21354352");
+    Book book2 = new Book("War and Peace","Leo Tolstoy","1873","released",null,null,null,null,null,"532426667");
     bookList.addBook(book);
     bookList.addBook(book1);
     bookList.addBook(book2);
@@ -25,8 +25,8 @@ public class DataInit {
 
     ArticleList articleList = new ArticleList();
 
-    Article article = new Article("a","a","12","released",null,null,null,null,null);
-    Article article1 = new Article("a","a","12","released",null,null,null,null,null);
+    Article article = new Article("Minimum Viable Personality","FakeGrimlock","2005","released",null,null,null,null,null);
+    Article article1 = new Article("Why Content Marketing Fails","Rand Fishkin","1999","released",null,null,null,null,null);
     articleList.add(article);
     articleList.add(article1);
 
