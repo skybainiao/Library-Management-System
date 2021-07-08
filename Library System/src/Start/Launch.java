@@ -1,6 +1,5 @@
 package Start;
 
-import Start.GetStart;
 import javafx.application.Application;
 
 public class Launch {
