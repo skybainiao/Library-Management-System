@@ -343,21 +343,32 @@ public class ManagerController {
 
 
   //search book by bookTitle and bookWriter
-  public void searchBook(){
+  public void searchBook() throws IOException {
+    ArrayList<Book> bookArrayList = new ArrayList<>();
+
     if (searchText.getText() != null){
       for (int i = 0; i < bookList.getBooks().size(); i++) {
-        if (bookList.getBooks().get(i).getTitle().equals(searchText.getText()) ||
-                bookList.getBooks().get(i).getWriter().equals(searchText.getText()) ||
-                bookList.getBooks().get(i).getISBN().equals(searchText.getText()) ||
-                bookList.getBooks().get(i).getReleaseTime().equals(searchText.getText())) {
-          ArrayList<Book> bookArrayList = new ArrayList<>();
-          bookArrayList.add(bookList.getBooks().get(i));
-          ObservableList books = FXCollections.observableArrayList();
-          books.addAll(bookArrayList);
-          bookTableView.setItems(books);
+        if (bookList.getBooks().get(i).getReleaseTime().equals(searchText.getText())
+                || bookList.getBooks().get(i).getTitle().equals(searchText.getText())
+                || bookList.getBooks().get(i).getWriter().equals(searchText.getText())
+                || bookList.getBooks().get(i).getISBN().equals(searchText.getText())){
+          try {
+            System.out.println(bookList.getBooks().get(i));
+            bookArrayList.add(bookList.getBooks().get(i));
+            ObservableList books = FXCollections.observableArrayList();
+            books.addAll(bookArrayList);
+            bookTableView.setItems(books);
+
+          }
+          catch (Exception e){
+            System.out.println("no book found");
+          }
         }
-        searchText.setText("");
+        else {
+          System.out.println("Searched: "+i);
+        }
       }
+      searchText.setText("");
     }
     else {
       JOptionPane.showMessageDialog(null,"Please enter search context");
@@ -437,19 +448,25 @@ public class ManagerController {
 
   //search article in article.bin by title and writer
   public void searchArticle(){
+    ArrayList<Article> articlesArrayList = new ArrayList<>();
+
     if (articleST.getText() != null){
       for (int i = 0; i < articleList.getArticles().size(); i++) {
         if (articleList.getArticles().get(i).getTitle().equals(articleST.getText()) ||
                 articleList.getArticles().get(i).getWriter().equals(articleST.getText()) ||
                 articleList.getArticles().get(i).getReleaseTime().equals(articleST.getText())){
-          ArrayList<Article> articlesArrayList = new ArrayList<>();
-          articlesArrayList.add(articleList.getArticles().get(i));
-          ObservableList articles = FXCollections.observableArrayList();
-          articles.addAll(articlesArrayList);
-          articleListView.setItems(articles);
+          try {
+            articlesArrayList.add(articleList.getArticles().get(i));
+            ObservableList articles = FXCollections.observableArrayList();
+            articles.addAll(articlesArrayList);
+            articleListView.setItems(articles);
+          }
+          catch (Exception e){
+            System.out.println("no article found");
+          }
         }
-        articleST.setText("");
       }
+      articleST.setText("");
     }
     else {
       JOptionPane.showMessageDialog(null,"Please enter search context");
@@ -461,18 +478,23 @@ public class ManagerController {
   public void setAllCDs(){
       for (int i = 0; i < cdList.getCdArrayList().size(); i++) {
           if (cdList.getCdArrayList().get(i) != null){
-            labelA.setText(cdList.getCdArrayList().get(0).getName());
+            labelA.setText("< "+cdList.getCdArrayList().get(0).getName()+" >");
             labelA1.setText(cdList.getCdArrayList().get(0).getStatus());
-            labelB.setText(cdList.getCdArrayList().get(1).getName());
+
+            labelB.setText("< "+cdList.getCdArrayList().get(1).getName()+" >");
             labelB1.setText(cdList.getCdArrayList().get(1).getStatus());
-            labelC.setText(cdList.getCdArrayList().get(2).getName());
+
+            labelC.setText("< "+cdList.getCdArrayList().get(2).getName()+" >");
             labelC1.setText(cdList.getCdArrayList().get(2).getStatus());
-            labelD.setText(cdList.getCdArrayList().get(3).getName());
+
+            labelD.setText("< "+cdList.getCdArrayList().get(3).getName()+" >");
             labelD1.setText(cdList.getCdArrayList().get(3).getStatus());
-            labelE.setText(cdList.getCdArrayList().get(4).getName());
+
+            labelE.setText("< "+cdList.getCdArrayList().get(4).getName()+" >");
             labelE1.setText(cdList.getCdArrayList().get(4).getStatus());
-            labelF.setText(cdList.getCdArrayList().get(5).getName());
-            labelF.setText(cdList.getCdArrayList().get(5).getStatus());
+
+            labelF.setText("< "+cdList.getCdArrayList().get(5).getName()+" >");
+            labelF1.setText(cdList.getCdArrayList().get(5).getStatus());
           }
       }
   }
@@ -480,6 +502,7 @@ public class ManagerController {
 
   //edit info of cds
   public void changeCDInfo(){
+
     img1But.setOnAction(new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent actionEvent) {

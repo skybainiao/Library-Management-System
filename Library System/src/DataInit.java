@@ -54,5 +54,11 @@ public class DataInit {
 
     adapter2.addCDList(cdList);
     System.out.println(adapter2.getCDList().getCdArrayList());
+    for (int i = 0; i < bookList.getBooks().size(); i++) {
+      if (bookList.getBooks().get(i).getISBN().equals("532426667")){
+        System.out.println(bookList.getBooks().get(i));
+      }
+    }
+
   }
 }
