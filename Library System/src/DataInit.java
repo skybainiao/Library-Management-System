@@ -5,6 +5,8 @@ import java.io.IOException;
 
 public class DataInit {
   public static void main(String[] args) throws IOException {
+    // TODO: 10/07/2021 Please don't run this class !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
     // TODO: 07/07/2021 This is BookDataInit
     Adapter adapter = new Adapter("library.bin");
 
@@ -54,10 +56,7 @@ public class DataInit {
 
     adapter2.addCDList(cdList);
     System.out.println(adapter2.getCDList().getCdArrayList());
-    for (int i = 0; i < bookList.getBooks().size(); i++) {
-      if (bookList.getBooks().get(i).getISBN().equals("532426667")){
-        System.out.println(bookList.getBooks().get(i));
-      }
-    }
+
+
   }
 }

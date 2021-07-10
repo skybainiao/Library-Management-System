@@ -35,9 +35,9 @@
                         <Button fx:id="getAllBooks" layoutX="10.0" layoutY="14.0" mnemonicParsing="false" onAction="#getAllBooks" prefHeight="27.0" prefWidth="131.0" text="Refresh" />
                         <TableView fx:id="bookTableView" layoutX="10.0" layoutY="51.0" prefHeight="652.0" prefWidth="843.0">
                           <columns>
-                            <TableColumn fx:id="bookTitle" prefWidth="201.0" text="Title" />
-                            <TableColumn fx:id="bookWriter" minWidth="0.0" prefWidth="203.0" text="Author" />
-                              <TableColumn fx:id="bookReleaseTime" prefWidth="149.0" text="ReleaseTime" />
+                            <TableColumn fx:id="bookTitle" prefWidth="228.0" text="Title" />
+                            <TableColumn fx:id="bookWriter" minWidth="0.0" prefWidth="190.0" text="Author" />
+                              <TableColumn fx:id="bookReleaseTime" prefWidth="135.0" text="ReleaseTime" />
                               <TableColumn fx:id="statusOfBook" prefWidth="127.0" text="Status" />
                               <TableColumn fx:id="isbn" prefWidth="162.0" text="ISBN" />
                           </columns>

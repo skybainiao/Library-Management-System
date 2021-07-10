@@ -243,14 +243,14 @@ public class ManagerController {
     img4But.setText("Save");
     img5But.setText("Save");
     img6But.setText("Save");
-    bookStatus.getItems().addAll("Booked","Borrowed");
-    artBox.getItems().addAll("Booked","Borrowed");
-    img1.getItems().addAll("Booked","Borrowed");
-    img2.getItems().addAll("Booked","Borrowed");
-    img3.getItems().addAll("Booked","Borrowed");
-    img4.getItems().addAll("Booked","Borrowed");
-    img5.getItems().addAll("Booked","Borrowed");
-    img6.getItems().addAll("Booked","Borrowed");
+    bookStatus.getItems().addAll("Booked","Borrowed","Available");
+    artBox.getItems().addAll("Booked","Borrowed","Available");
+    img1.getItems().addAll("Booked","Borrowed","Available");
+    img2.getItems().addAll("Booked","Borrowed","Available");
+    img3.getItems().addAll("Booked","Borrowed","Available");
+    img4.getItems().addAll("Booked","Borrowed","Available");
+    img5.getItems().addAll("Booked","Borrowed","Available");
+    img6.getItems().addAll("Booked","Borrowed","Available");
     adapter = new Adapter("library.bin");
     adapter1 = new Adapter("Article.bin");
     adapter2 = new Adapter("CD.bin");
@@ -358,7 +358,6 @@ public class ManagerController {
             ObservableList books = FXCollections.observableArrayList();
             books.addAll(bookArrayList);
             bookTableView.setItems(books);
-
           }
           catch (Exception e){
             System.out.println("no book found");
