@@ -8,6 +8,6 @@ public class GetStart extends Application {
 
   @Override public void start(Stage stage) throws Exception {
     ViewHandler viewHandler = new ViewHandler();
-    viewHandler.openManagerView();
+    viewHandler.openGetInView();
   }
 }

@@ -228,7 +228,7 @@ public class ManagerController {
   //initialization
   public void init(){
     save.setText("Save");
-    getAllBooks.setText("GetAll");
+    getAllBooks.setText("Refresh");
     deleteBooks.setText("Del");
     change.setText("Edit");
     search.setText("Search");

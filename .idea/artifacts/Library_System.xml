@@ -1,0 +1,23 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="Library System">
+    <output-path>$PROJECT_DIR$/out/artifacts/Library_System</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="Start.Launch" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="nativeBundle" value="all" />
+        <option name="title" value="Liarbry" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="Library_System.jar">
+        <element id="module-output" name="Library System" />
+      </element>
+      <element id="library" level="application" name="JavaFX" />
+      <element id="artifact" artifact-name="Library-Management-System" />
+    </root>
+  </artifact>
+</component>

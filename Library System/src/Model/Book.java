@@ -59,13 +59,13 @@ public class Book extends Borrower implements Serializable {
     return writer;
   }
 
+
   @Override
   public String toString() {
     return "Book{" +
             "title='" + title + '\'' +
             ", writer='" + writer + '\'' +
             ", releaseTime='" + releaseTime + '\'' +
-            ", status='" + status + '\'' +
-            '}';
+            ", status='" + status + '\'' + '}'+" "+super.toString();
   }
 }

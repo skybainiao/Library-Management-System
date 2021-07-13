@@ -12,9 +12,9 @@ public class DataInit {
 
     BookList bookList = new BookList();
 
-    Book book = new Book("Anna Karenina","Leo Tolstoy","1798","released",null,null,null,null,null,"1232134256");
-    Book book1 = new Book("Madame Bovary","Gustave Flaubert","1867","released",null,null,null,null,null,"21354352");
-    Book book2 = new Book("War and Peace","Leo Tolstoy","1873","released",null,null,null,null,null,"532426667");
+    Book book = new Book("Anna Karenina","Leo Tolstoy","1798","released","","","","","","1232134256");
+    Book book1 = new Book("Madame Bovary","Gustave Flaubert","1867","released","","","","","","21354352");
+    Book book2 = new Book("War and Peace","Leo Tolstoy","1873","released","","","","","","532426667");
     bookList.addBook(book);
     bookList.addBook(book1);
     bookList.addBook(book2);
@@ -34,6 +34,7 @@ public class DataInit {
 
     adapter1.addArticleList(articleList);
     System.out.println(adapter1.getArticleList().getArticles());
+    System.out.println(article.getToString());
 
     // TODO: 07/07/2021 This is CDDataInit
     Adapter adapter2 = new Adapter("CD.bin");

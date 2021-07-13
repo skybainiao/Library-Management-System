@@ -21,14 +21,14 @@
         <tabs>
           <Tab text="        Book        ">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="649.0" prefWidth="1011.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="649.0" prefWidth="1011.0" style="-fx-background-color: white;">
                      <children>
                         <Button fx:id="search" layoutX="709.0" layoutY="14.0" mnemonicParsing="false" onAction="#searchBook" prefHeight="27.0" prefWidth="144.0" text="Search" />
-                        <TextField fx:id="title" layoutX="915.0" layoutY="117.0" promptText="Title" />
-                        <TextField fx:id="writer" layoutX="915.0" layoutY="185.0" promptText="Author" />
-                        <TextField fx:id="releaseTime" layoutX="915.0" layoutY="253.0" promptText="ReleaseTime" />
-                        <TextField fx:id="ISBN" layoutX="915.0" layoutY="318.0" promptText="ISBN" />
-                        <ChoiceBox fx:id="bookStatus" layoutX="915.0" layoutY="383.0" prefHeight="27.0" prefWidth="161.0" />
+                        <TextField fx:id="title" layoutX="915.0" layoutY="126.0" promptText="Title" />
+                        <TextField fx:id="writer" layoutX="914.0" layoutY="192.0" promptText="Author" />
+                        <TextField fx:id="releaseTime" layoutX="915.0" layoutY="259.0" promptText="ReleaseTime" />
+                        <TextField fx:id="ISBN" layoutX="915.0" layoutY="324.0" promptText="ISBN" />
+                        <ChoiceBox fx:id="bookStatus" layoutX="915.0" layoutY="388.0" prefHeight="27.0" prefWidth="161.0" />
                         <Button fx:id="save" layoutX="927.0" layoutY="465.0" mnemonicParsing="false" onAction="#addBook" prefHeight="27.0" prefWidth="137.0" text="Save" />
                         <Button fx:id="change" layoutX="927.0" layoutY="537.0" mnemonicParsing="false" onAction="#changeBook" prefHeight="27.0" prefWidth="137.0" text="Edit" />
                         <Button fx:id="deleteBooks" layoutX="927.0" layoutY="609.0" mnemonicParsing="false" onAction="#deleteBook" prefHeight="27.0" prefWidth="137.0" text="Del" />
@@ -43,13 +43,18 @@
                           </columns>
                         </TableView>
                         <TextField fx:id="searchText" layoutX="214.0" layoutY="14.0" prefHeight="27.0" prefWidth="476.0" />
+                        <ImageView fitHeight="108.0" fitWidth="171.0" layoutX="948.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../picture/t.jpeg" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
           <Tab text="        Article       ">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;">
                      <children>
                         <Button fx:id="articleFresh" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#getAllArticles" prefHeight="27.0" prefWidth="122.0" text="Refresh" />
                         <TextField fx:id="articleST" layoutX="215.0" layoutY="14.0" prefHeight="27.0" prefWidth="486.0" />
@@ -62,6 +67,11 @@
                         <Button fx:id="artEdit" layoutX="951.0" layoutY="536.0" mnemonicParsing="false" onAction="#changeArticle" prefHeight="27.0" prefWidth="106.0" text="Edit" />
                         <Button fx:id="artDel" layoutX="951.0" layoutY="611.0" mnemonicParsing="false" onAction="#deleteArticle" prefHeight="27.0" prefWidth="105.0" text="Del" />
                         <ListView fx:id="articleListView" layoutX="14.0" layoutY="49.0" prefHeight="657.0" prefWidth="843.0" />
+                        <ImageView fitHeight="109.0" fitWidth="146.0" layoutX="956.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../picture/t.jpeg" />
+                           </image>
+                        </ImageView>
                      </children></AnchorPane>
             </content>
           </Tab>

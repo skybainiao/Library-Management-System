@@ -49,6 +49,10 @@ public class Article extends Borrower implements Serializable {
         return ArTWriter;
     }
 
+    public String getToString(){
+        return super.toString();
+    }
+
     @Override
     public String toString() {
         return "              Title: " + "<<"+ArtTitle+">>"  +

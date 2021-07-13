@@ -33,5 +33,42 @@ public class ViewHandler {
     mainStage.show();
   }
 
+  private Scene getIn;
+  public void openGetInView(){
+    try {
+      FXMLLoader loader=new FXMLLoader();
+      loader.setLocation(getClass().getResource("GetInController.fxml"));
+      Parent root=loader.load();
+      GetInController getInController = loader.getController();
+      getInController.init(this);
+      mainStage.setTitle("GetIn");
+      getIn=new Scene(root);
+    }
+    catch (IOException e){
+      e.printStackTrace();
+    }
+    mainStage.setScene(getIn);
+    mainStage.show();
+  }
+
+  private Scene borrow;
+  public void openBorrowView(){
+    try {
+      FXMLLoader loader=new FXMLLoader();
+      loader.setLocation(getClass().getResource("BorrowerController.fxml"));
+      Parent root=loader.load();
+      BorrowerController borrowerController = loader.getController();
+      borrowerController.init();
+      mainStage.setTitle("Borrow");
+      borrow=new Scene(root);
+    }
+    catch (IOException e){
+      e.printStackTrace();
+    }
+    mainStage.setScene(borrow);
+    mainStage.show();
+  }
+
+
 
 }
