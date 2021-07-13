@@ -26,11 +26,15 @@ public class ManagerController {
 
   private Adapter adapter2;
 
+  private Adapter adapter3;
+
   private BookList bookList;
 
   private ArticleList articleList;
 
   private CDList cdList;
+
+  private ArrayList<String> strings;
 
   @FXML
   private TextField title;
@@ -224,6 +228,9 @@ public class ManagerController {
   @FXML
   private ImageView imgF;
 
+  @FXML
+  private TextArea logs;
+
 
   //initialization
   public void init(){
@@ -254,9 +261,11 @@ public class ManagerController {
     adapter = new Adapter("library.bin");
     adapter1 = new Adapter("Article.bin");
     adapter2 = new Adapter("CD.bin");
+    adapter3 = new Adapter("String.bin");
     bookList = adapter.getBookList();
     articleList = adapter1.getArticleList();
     cdList = adapter2.getCDList();
+    strings = adapter3.getString();
     bookTableView.setEditable(true);
     articleListView.setEditable(true);
     bookTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
@@ -268,6 +277,19 @@ public class ManagerController {
     getAllArticles();
     setAllCDs();
     changeCDInfo();
+    getAllLogs();
+  }
+
+
+  public void getAllLogs(){
+    String str = "";
+
+    for(int i = 0; i<strings.size(); i++) {
+      String temp = strings.get(i);
+      str += temp +"\n";
+      logs.setText(str);
+    }
+
   }
 
 

@@ -11,13 +11,20 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 
 public class BorrowerController {
 
     private Adapter adapter;
 
+    private Adapter adapter1;
+
     private BookList bookList;
+
+    private ArrayList<String> strings;
 
     @FXML
     private Button refresh;
@@ -79,12 +86,14 @@ public class BorrowerController {
         tip.setText("Students can borrow books for 1 month, and lecturers can borrow books for 6 months");
         identity.getItems().addAll("Lecturer","Student");
         adapter = new Adapter("library.bin");
+        adapter1 = new Adapter("String.bin");
         bookTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
         bookWriter.setCellValueFactory(new PropertyValueFactory<>("writer"));
         bookReleaseTime.setCellValueFactory(new PropertyValueFactory<>("releaseTime"));
         statusOfBook.setCellValueFactory(new PropertyValueFactory<>("status"));
         isbn.setCellValueFactory(new PropertyValueFactory<>("ISBN"));
         bookList = adapter.getBookList();
+        strings = adapter1.getString();
         getAllBooks();
     }
 
@@ -142,6 +151,10 @@ public class BorrowerController {
 
                     bookList.addBook(newBook);
                     adapter.addBookList(bookList);
+                    LocalDateTime dateTime = LocalDateTime.now();
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+                    strings.add(" "+dateTime.format(formatter)+":     "+identity.getSelectionModel().getSelectedItem().toString()+": "+name.getText()+"    booked    "+"<"+book.getTitle()+">");
+                    adapter1.addStrings(strings);
                     System.out.println("Successfully booked");
                     clear();
                     //JOptionPane.showMessageDialog(null,"Successfully booked");
@@ -165,6 +178,10 @@ public class BorrowerController {
 
                     bookList.addBook(newBook);
                     adapter.addBookList(bookList);
+                    LocalDateTime dateTime = LocalDateTime.now();
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+                    strings.add(" "+dateTime.format(formatter)+":     "+identity.getSelectionModel().getSelectedItem().toString()+": "+name.getText()+"    borrowed    "+"<"+book.getTitle()+">");
+                    adapter1.addStrings(strings);
                     System.out.println("Successfully borrowed");
                     clear();
                     //JOptionPane.showMessageDialog(null,"Successfully borrowed");

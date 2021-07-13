@@ -6,6 +6,8 @@ import Model.CDList;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Adapter{
@@ -58,6 +60,27 @@ public class Adapter{
     }
     return articleList;
 
+  }
+
+
+  public void addStrings(ArrayList<String> text) throws IOException {
+    myFileIO.write(fileName,text);
+  }
+
+  public ArrayList<String> getString(){
+
+    ArrayList<String> strings = new ArrayList<>();
+    try {
+      strings = (ArrayList<String>) myFileIO.read(fileName);
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    } catch (IOException e) {
+      e.printStackTrace();
+    } catch (ClassNotFoundException e) {
+      e.printStackTrace();
+    }
+
+    return strings;
   }
 
 

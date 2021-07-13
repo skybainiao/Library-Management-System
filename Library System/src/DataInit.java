@@ -2,11 +2,15 @@ import File.Adapter;
 import Model.*;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 public class DataInit {
   public static void main(String[] args) throws IOException {
-    // TODO: 10/07/2021 Please don't run this class !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+
+    // TODO: 10/07/2021 Please don't run this class !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     // TODO: 07/07/2021 This is BookDataInit
     Adapter adapter = new Adapter("library.bin");
 
@@ -22,6 +26,7 @@ public class DataInit {
     adapter.addBookList(bookList);
     System.out.println(adapter.getBookList().getBooks());
 
+
     // TODO: 07/07/2021 This is ArticleDataInit
     Adapter adapter1 = new Adapter("Article.bin");
 
@@ -35,6 +40,7 @@ public class DataInit {
     adapter1.addArticleList(articleList);
     System.out.println(adapter1.getArticleList().getArticles());
     System.out.println(article.getToString());
+
 
     // TODO: 07/07/2021 This is CDDataInit
     Adapter adapter2 = new Adapter("CD.bin");
@@ -57,6 +63,24 @@ public class DataInit {
 
     adapter2.addCDList(cdList);
     System.out.println(adapter2.getCDList().getCdArrayList());
+
+
+    // TODO: 13/07/2021 String Text
+    Adapter adapter3 = new Adapter("String.bin");
+
+    //ArrayList<String> strings = new ArrayList<>();
+//
+    //LocalDateTime dateTime = LocalDateTime.now();
+    //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+//
+    //String s = "//"+dateTime.format(formatter)+";    "+"Hello";
+    //String s1 = "//"+dateTime.format(formatter)+";    "+"World";
+//
+    //strings.add(s);
+    //strings.add(s1);
+//
+    //adapter3.addStrings(strings);
+    System.out.println(adapter3.getString());
 
 
   }
