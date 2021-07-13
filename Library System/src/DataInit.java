@@ -68,18 +68,18 @@ public class DataInit {
     // TODO: 13/07/2021 String Text
     Adapter adapter3 = new Adapter("String.bin");
 
-    //ArrayList<String> strings = new ArrayList<>();
-//
-    //LocalDateTime dateTime = LocalDateTime.now();
-    //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-//
-    //String s = "//"+dateTime.format(formatter)+";    "+"Hello";
-    //String s1 = "//"+dateTime.format(formatter)+";    "+"World";
-//
-    //strings.add(s);
-    //strings.add(s1);
-//
-    //adapter3.addStrings(strings);
+    ArrayList<String> strings = new ArrayList<>();
+
+    LocalDateTime dateTime = LocalDateTime.now();
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+
+    String s = "//"+dateTime.format(formatter)+";    "+"Hello";
+    String s1 = "//"+dateTime.format(formatter)+";    "+"World";
+
+    strings.add(s);
+    strings.add(s1);
+
+    adapter3.addStrings(strings);
     System.out.println(adapter3.getString());
 
 

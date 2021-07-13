@@ -16,6 +16,8 @@ import javafx.stage.Stage;
 import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class ManagerController {
@@ -28,6 +30,8 @@ public class ManagerController {
 
   private Adapter adapter3;
 
+  private Adapter adapter4;
+
   private BookList bookList;
 
   private ArticleList articleList;
@@ -35,6 +39,8 @@ public class ManagerController {
   private CDList cdList;
 
   private ArrayList<String> strings;
+
+  private ArrayList<String> stringsX;
 
   @FXML
   private TextField title;
@@ -231,6 +237,9 @@ public class ManagerController {
   @FXML
   private TextArea logs;
 
+  @FXML
+  private TextArea logsX;
+
 
   //initialization
   public void init(){
@@ -262,10 +271,12 @@ public class ManagerController {
     adapter1 = new Adapter("Article.bin");
     adapter2 = new Adapter("CD.bin");
     adapter3 = new Adapter("String.bin");
+    adapter4 = new Adapter("StringX.bin");
     bookList = adapter.getBookList();
     articleList = adapter1.getArticleList();
     cdList = adapter2.getCDList();
     strings = adapter3.getString();
+    stringsX = adapter4.getString();
     bookTableView.setEditable(true);
     articleListView.setEditable(true);
     bookTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
@@ -278,18 +289,7 @@ public class ManagerController {
     setAllCDs();
     changeCDInfo();
     getAllLogs();
-  }
-
-
-  public void getAllLogs(){
-    String str = "";
-
-    for(int i = 0; i<strings.size(); i++) {
-      String temp = strings.get(i);
-      str += temp +"\n";
-      logs.setText(str);
-    }
-
+    getManagerLogs();
   }
 
 
@@ -303,6 +303,9 @@ public class ManagerController {
 
         bookList.addBook(book);
         adapter.addBookList(bookList);
+        stringsX.add(" "+getTime()+":     "+"Manager added a book: "+"<"+book.getTitle()+">");
+        adapter4.addStrings(stringsX);
+        getManagerLogs();
         getAllBooks();
         clear();
       }
@@ -334,6 +337,9 @@ public class ManagerController {
         if (bookList.getBooks().get(i).getTitle().equals(book.getTitle()) &&
                 bookList.getBooks().get(i).getWriter().equals(book.getWriter())){
           bookList.removeBook(bookList.getBooks().get(i));
+          stringsX.add(" "+getTime()+":     "+"Manager deleted a book: "+"<"+book.getTitle()+">");
+          adapter4.addStrings(stringsX);
+          getManagerLogs();
         }
       }
     }
@@ -347,7 +353,7 @@ public class ManagerController {
 
 
   //edit the information of the selected book
-  public void changeBook(){
+  public void changeBook() throws IOException {
     Book book = bookTableView.getSelectionModel().getSelectedItem();
     if (book != null){
       for (int i = 0; i < bookList.getBooks().size(); i++) {
@@ -358,6 +364,9 @@ public class ManagerController {
           releaseTime.setText(bookList.getBooks().get(i).getReleaseTime());
           ISBN.setText(bookList.getBooks().get(i).getISBN());
           bookList.removeBook(bookList.getBooks().get(i));
+          stringsX.add(" "+getTime()+":     "+"Manager edited a book: "+"<"+book.getTitle()+">");
+          adapter4.addStrings(stringsX);
+          getManagerLogs();
         }
       }
     }
@@ -380,6 +389,9 @@ public class ManagerController {
             ObservableList books = FXCollections.observableArrayList();
             books.addAll(bookArrayList);
             bookTableView.setItems(books);
+            stringsX.add(" "+getTime()+":     "+"Manager searched a book by: "+searchText.getText());
+            adapter4.addStrings(stringsX);
+            getManagerLogs();
           }
           catch (Exception e){
             System.out.println("no book found");
@@ -407,6 +419,9 @@ public class ManagerController {
 
         articleList.add(article);
         adapter1.addArticleList(articleList);
+        stringsX.add(" "+getTime()+":     "+"Manager added a article: "+"<"+article.getTitle()+">");
+        adapter4.addStrings(stringsX);
+        getManagerLogs();
         getAllArticles();
         artClear();
       }
@@ -436,6 +451,9 @@ public class ManagerController {
         if (articleList.getArticles().get(i).getTitle().equals(article.getTitle()) &&
                 articleList.getArticles().get(i).getWriter().equals(article.getWriter())){
           articleList.remove(articleList.getArticles().get(i));
+          stringsX.add(" "+getTime()+":     "+"Manager deleted a book: "+"<"+article.getTitle()+">");
+          adapter4.addStrings(stringsX);
+          getManagerLogs();
         }
       }
     }
@@ -449,7 +467,7 @@ public class ManagerController {
 
 
   //edit info of article
-  public void changeArticle(){
+  public void changeArticle() throws IOException {
     Article article = articleListView.getSelectionModel().getSelectedItem();
     if (article != null){
       for (int i = 0; i < articleList.getArticles().size(); i++) {
@@ -460,6 +478,9 @@ public class ManagerController {
           artWT.setText(articleList.getArticles().get(i).getWriter());
           artRelTimeT.setText(articleList.getArticles().get(i).getReleaseTime());
           articleList.remove(articleList.getArticles().get(i));
+          stringsX.add(" "+getTime()+":     "+"Manager edited a book: "+"<"+article.getTitle()+">");
+          adapter4.addStrings(stringsX);
+          getManagerLogs();
 
         }
       }
@@ -481,6 +502,9 @@ public class ManagerController {
             ObservableList articles = FXCollections.observableArrayList();
             articles.addAll(articlesArrayList);
             articleListView.setItems(articles);
+            stringsX.add(" "+getTime()+":     "+"Manager searched a article by: "+articleST.getText());
+            adapter4.addStrings(stringsX);
+            getManagerLogs();
           }
           catch (Exception e){
             System.out.println("no article found");
@@ -717,6 +741,36 @@ public class ManagerController {
     artTT.setText("");
     artWT.setText("");
     artRelTimeT.setText("");
+  }
+
+
+  public void getAllLogs(){
+    String str = "";
+
+    for (int i = 0; i<strings.size(); i++) {
+      String temp = strings.get(i);
+      str += temp +"\n";
+      logs.setText(str);
+    }
+
+  }
+
+
+  public void getManagerLogs(){
+    String str = "";
+
+    for (int i = 0; i < stringsX.size(); i++) {
+      String temp = stringsX.get(i);
+      str += temp +"\n";
+      logsX.setText(str);
+    }
+  }
+
+
+  public String getTime(){
+    LocalDateTime dateTime = LocalDateTime.now();
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+    return dateTime.format(formatter);
   }
 
 
