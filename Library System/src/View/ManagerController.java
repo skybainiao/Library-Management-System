@@ -14,7 +14,6 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javax.swing.*;
-import javax.swing.text.View;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
