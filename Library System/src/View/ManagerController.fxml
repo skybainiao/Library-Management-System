@@ -44,11 +44,7 @@
                           </columns>
                         </TableView>
                         <TextField fx:id="searchText" layoutX="214.0" layoutY="14.0" prefHeight="27.0" prefWidth="476.0" />
-                        <ImageView fitHeight="108.0" fitWidth="171.0" layoutX="948.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../picture/t.jpeg" />
-                           </image>
-                        </ImageView>
+                        <ImageView fx:id="logo" fitHeight="108.0" fitWidth="171.0" layoutX="948.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </AnchorPane>
             </content>
@@ -68,11 +64,7 @@
                         <Button fx:id="artEdit" layoutX="951.0" layoutY="536.0" mnemonicParsing="false" onAction="#changeArticle" prefHeight="27.0" prefWidth="106.0" text="Edit" />
                         <Button fx:id="artDel" layoutX="951.0" layoutY="611.0" mnemonicParsing="false" onAction="#deleteArticle" prefHeight="27.0" prefWidth="105.0" text="Del" />
                         <ListView fx:id="articleListView" layoutX="14.0" layoutY="49.0" prefHeight="657.0" prefWidth="843.0" />
-                        <ImageView fitHeight="109.0" fitWidth="146.0" layoutX="956.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../picture/t.jpeg" />
-                           </image>
-                        </ImageView>
+                        <ImageView fx:id="logoX" fitHeight="109.0" fitWidth="146.0" layoutX="956.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
                      </children></AnchorPane>
             </content>
           </Tab>

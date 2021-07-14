@@ -242,10 +242,19 @@ public class ManagerController {
   @FXML
   private TextArea logsX;
 
+  @FXML
+  private ImageView logo;
+
+  @FXML
+  private ImageView logoX;
+
 
   //initialization
   public void init(ViewHandler viewHandler){
     this.viewHandler=viewHandler;
+
+    logo.setImage(new Image("picture/t.jpeg"));
+    logoX.setImage(new Image("picture/t.jpeg"));
 
     save.setText("Save");
     getAllBooks.setText("Refresh");
