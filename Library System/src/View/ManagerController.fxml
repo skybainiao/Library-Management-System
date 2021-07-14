@@ -30,7 +30,7 @@
                         <TextField fx:id="releaseTime" layoutX="915.0" layoutY="259.0" promptText="ReleaseTime" />
                         <TextField fx:id="ISBN" layoutX="915.0" layoutY="324.0" promptText="ISBN" />
                         <ChoiceBox fx:id="bookStatus" layoutX="915.0" layoutY="388.0" prefHeight="27.0" prefWidth="161.0" />
-                        <Button fx:id="save" layoutX="927.0" layoutY="465.0" mnemonicParsing="false" onAction="#addBook" prefHeight="27.0" prefWidth="137.0" text="Save" />
+                        <Button fx:id="save" layoutX="927.0" layoutY="465.0" mnemonicParsing="false" onAction="#addBook" prefHeight="27.0" prefWidth="137.0" text="Save" textFill="#4d4d4d" />
                         <Button fx:id="change" layoutX="927.0" layoutY="537.0" mnemonicParsing="false" onAction="#changeBook" prefHeight="27.0" prefWidth="137.0" text="Edit" />
                         <Button fx:id="deleteBooks" layoutX="927.0" layoutY="609.0" mnemonicParsing="false" onAction="#deleteBook" prefHeight="27.0" prefWidth="137.0" text="Del" />
                         <Button fx:id="getAllBooks" layoutX="10.0" layoutY="14.0" mnemonicParsing="false" onAction="#getAllBooks" prefHeight="27.0" prefWidth="131.0" text="Refresh" />
@@ -171,10 +171,10 @@
             </Tab>
             <Tab text="   System Log   ">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;">
                      <children>
-                        <TextArea fx:id="logs" layoutX="557.0" layoutY="13.0" prefHeight="691.0" prefWidth="567.0" />
-                        <TextArea fx:id="logsX" layoutX="14.0" layoutY="13.0" prefHeight="691.0" prefWidth="526.0" />
+                        <TextArea fx:id="logs" layoutX="557.0" layoutY="13.0" prefHeight="691.0" prefWidth="567.0" style="-fx-background-color: white;" />
+                        <TextArea fx:id="logsX" layoutX="14.0" layoutY="13.0" prefHeight="691.0" prefWidth="526.0" style="-fx-background-color: white;" />
                      </children>
                   </AnchorPane>
               </content>
