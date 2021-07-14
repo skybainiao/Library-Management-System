@@ -139,26 +139,32 @@ public class BorrowerController {
 
     public void book() throws IOException {
         Book book = bookTableView.getSelectionModel().getSelectedItem();
-        if (book != null){
-            for (int i = 0; i < bookList.getBooks().size(); i++) {
-                if (bookList.getBooks().get(i).getTitle().equals(book.getTitle()) &&
-                        bookList.getBooks().get(i).getWriter().equals(book.getWriter())){
-                    bookList.removeBook(bookList.getBooks().get(i));
-                    Book newBook = new Book(book.getTitle(),book.getWriter(),book.getReleaseTime(),book.getStatus(),
-                            name.getText(),email.getText(),identity.getSelectionModel().getSelectedItem().toString(),
-                            borrowTime.getText(),returnTime.getText(),book.getISBN());
 
-                    bookList.addBook(newBook);
-                    adapter.addBookList(bookList);
-                    LocalDateTime dateTime = LocalDateTime.now();
-                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-                    strings.add(" "+dateTime.format(formatter)+":     "+identity.getSelectionModel().getSelectedItem().toString()+": "+name.getText()+"    booked    "+"<"+book.getTitle()+">");
-                    adapter1.addStrings(strings);
-                    System.out.println("Successfully booked");
-                    clear();
-                    JOptionPane.showMessageDialog(null,"Successfully booked");
-                    break;
+        if (book != null){
+            if (book.getStatus().equals("Available")){
+                for (int i = 0; i < bookList.getBooks().size(); i++) {
+                    if (bookList.getBooks().get(i).getTitle().equals(book.getTitle()) &&
+                            bookList.getBooks().get(i).getWriter().equals(book.getWriter())){
+                        bookList.removeBook(bookList.getBooks().get(i));
+                        Book newBook = new Book(book.getTitle(),book.getWriter(),book.getReleaseTime(),book.getStatus(),
+                                name.getText(),email.getText(),identity.getSelectionModel().getSelectedItem().toString(),
+                                borrowTime.getText(),returnTime.getText(),book.getISBN());
+
+                        bookList.addBook(newBook);
+                        adapter.addBookList(bookList);
+                        LocalDateTime dateTime = LocalDateTime.now();
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+                        strings.add(" "+dateTime.format(formatter)+":     "+identity.getSelectionModel().getSelectedItem().toString()+": "+name.getText()+"    booked    "+"<"+book.getTitle()+">");
+                        adapter1.addStrings(strings);
+                        System.out.println("Successfully booked");
+                        clear();
+                        JOptionPane.showMessageDialog(null,"Successfully booked");
+                        break;
+                    }
                 }
+            }
+            else {
+                JOptionPane.showMessageDialog(null,"This item is unavailable");
             }
         }
         else {
@@ -169,27 +175,34 @@ public class BorrowerController {
 
     public void borrow() throws IOException {
         Book book = bookTableView.getSelectionModel().getSelectedItem();
-        if (book != null){
-            for (int i = 0; i < bookList.getBooks().size(); i++) {
-                if (bookList.getBooks().get(i).getTitle().equals(book.getTitle()) &&
-                        bookList.getBooks().get(i).getWriter().equals(book.getWriter())){
-                    bookList.removeBook(bookList.getBooks().get(i));
-                    Book newBook = new Book(book.getTitle(),book.getWriter(),book.getReleaseTime(),book.getStatus(),
-                            name.getText(),email.getText(),identity.getSelectionModel().getSelectedItem().toString(),
-                            borrowTime.getText(),returnTime.getText(),book.getISBN());
 
-                    bookList.addBook(newBook);
-                    adapter.addBookList(bookList);
-                    LocalDateTime dateTime = LocalDateTime.now();
-                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-                    strings.add(" "+dateTime.format(formatter)+":     "+identity.getSelectionModel().getSelectedItem().toString()+": "+name.getText()+"    borrowed    "+"<"+book.getTitle()+">");
-                    adapter1.addStrings(strings);
-                    System.out.println("Successfully borrowed");
-                    clear();
-                    JOptionPane.showMessageDialog(null,"Successfully borrowed");
-                    break;
+        if (book != null){
+            if (book.getStatus().equals("Available")){
+                for (int i = 0; i < bookList.getBooks().size(); i++) {
+                    if (bookList.getBooks().get(i).getTitle().equals(book.getTitle()) &&
+                            bookList.getBooks().get(i).getWriter().equals(book.getWriter())){
+                        bookList.removeBook(bookList.getBooks().get(i));
+                        Book newBook = new Book(book.getTitle(),book.getWriter(),book.getReleaseTime(),book.getStatus(),
+                                name.getText(),email.getText(),identity.getSelectionModel().getSelectedItem().toString(),
+                                borrowTime.getText(),returnTime.getText(),book.getISBN());
+
+                        bookList.addBook(newBook);
+                        adapter.addBookList(bookList);
+                        LocalDateTime dateTime = LocalDateTime.now();
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+                        strings.add(" "+dateTime.format(formatter)+":     "+identity.getSelectionModel().getSelectedItem().toString()+": "+name.getText()+"    borrowed    "+"<"+book.getTitle()+">");
+                        adapter1.addStrings(strings);
+                        System.out.println("Successfully borrowed");
+                        clear();
+                        JOptionPane.showMessageDialog(null,"Successfully borrowed");
+                        break;
+                    }
                 }
             }
+            else {
+                JOptionPane.showMessageDialog(null,"This item is unavailable");
+            }
+
         }
         else {
             JOptionPane.showMessageDialog(null,"please select a book");
