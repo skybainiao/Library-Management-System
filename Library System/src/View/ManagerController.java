@@ -433,6 +433,7 @@ public class ManagerController {
         }
       }
       searchText.setText("");
+      System.out.println("Search done");
     }
     else {
       JOptionPane.showMessageDialog(null,"Please enter search context");
@@ -543,6 +544,7 @@ public class ManagerController {
         }
       }
       articleST.setText("");
+      System.out.println("Search done");
     }
     else {
       JOptionPane.showMessageDialog(null,"Please enter search context");

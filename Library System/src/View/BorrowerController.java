@@ -130,6 +130,7 @@ public class BorrowerController {
                 }
             }
             searchText.setText("");
+            System.out.println("Search done");
         }
         else {
             JOptionPane.showMessageDialog(null,"Please enter search context");
