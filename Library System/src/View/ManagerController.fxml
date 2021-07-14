@@ -43,7 +43,7 @@
                               <TableColumn fx:id="isbn" prefWidth="162.0" text="ISBN" />
                           </columns>
                         </TableView>
-                        <TextField fx:id="searchText" layoutX="214.0" layoutY="14.0" prefHeight="27.0" prefWidth="476.0" />
+                        <TextField fx:id="searchText" layoutX="214.0" layoutY="14.0" prefHeight="27.0" prefWidth="476.0" promptText="Search book by Title,Writer,ReleaseTime,ISBN" />
                         <ImageView fx:id="logo" fitHeight="108.0" fitWidth="171.0" layoutX="948.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </AnchorPane>
@@ -54,7 +54,7 @@
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;">
                      <children>
                         <Button fx:id="articleFresh" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#getAllArticles" prefHeight="27.0" prefWidth="122.0" text="Refresh" />
-                        <TextField fx:id="articleST" layoutX="215.0" layoutY="14.0" prefHeight="27.0" prefWidth="486.0" />
+                        <TextField fx:id="articleST" layoutX="215.0" layoutY="14.0" prefHeight="27.0" prefWidth="486.0" promptText="Search book by Title,Writer,ReleaseTime,ISBN" />
                         <Button fx:id="articleS" layoutX="714.0" layoutY="14.0" mnemonicParsing="false" onAction="#searchArticle" prefHeight="27.0" prefWidth="142.0" text="Search" />
                         <TextField fx:id="artTT" layoutX="923.0" layoutY="149.0" promptText="Title" />
                         <TextField fx:id="artWT" layoutX="923.0" layoutY="230.0" promptText="Writer" />
