@@ -173,8 +173,8 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextArea fx:id="logs" layoutX="14.0" layoutY="13.0" prefHeight="691.0" prefWidth="567.0" />
-                        <TextArea fx:id="logsX" layoutX="598.0" layoutY="13.0" prefHeight="691.0" prefWidth="526.0" />
+                        <TextArea fx:id="logs" layoutX="557.0" layoutY="13.0" prefHeight="691.0" prefWidth="567.0" />
+                        <TextArea fx:id="logsX" layoutX="14.0" layoutY="13.0" prefHeight="691.0" prefWidth="526.0" />
                      </children>
                   </AnchorPane>
               </content>

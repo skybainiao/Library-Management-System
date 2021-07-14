@@ -1,5 +1,6 @@
 package View;
 
+import Model.Book;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -22,7 +23,7 @@ public class ViewHandler {
       loader.setLocation(getClass().getResource("ManagerController.fxml"));
       Parent root=loader.load();
       ManagerController managerController=loader.getController();
-      managerController.init();
+      managerController.init(this);
       mainStage.setTitle("Manager");
       manager=new Scene(root);
     }
@@ -67,6 +68,27 @@ public class ViewHandler {
     }
     mainStage.setScene(borrow);
     mainStage.show();
+  }
+
+
+  private Stage stage = new Stage();
+  private Scene detail;
+  public void openDetailView(Book book){
+    try {
+      FXMLLoader loader=new FXMLLoader();
+      loader.setLocation(getClass().getResource("DetailController.fxml"));
+      Parent root=loader.load();
+      DetailController detailController = loader.getController();
+      detailController.init();
+      detailController.setBook(book);
+      stage.setTitle("Detail");
+      detail=new Scene(root);
+    }
+    catch (IOException e){
+      e.printStackTrace();
+    }
+    stage.setScene(detail);
+    stage.show();
   }
 
 

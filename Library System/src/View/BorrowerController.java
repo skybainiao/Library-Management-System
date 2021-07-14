@@ -156,10 +156,13 @@ public class BorrowerController {
                     adapter1.addStrings(strings);
                     System.out.println("Successfully booked");
                     clear();
-                    //JOptionPane.showMessageDialog(null,"Successfully booked");
+                    JOptionPane.showMessageDialog(null,"Successfully booked");
                     break;
                 }
             }
+        }
+        else {
+            JOptionPane.showMessageDialog(null,"please select a book");
         }
     }
 
@@ -183,10 +186,13 @@ public class BorrowerController {
                     adapter1.addStrings(strings);
                     System.out.println("Successfully borrowed");
                     clear();
-                    //JOptionPane.showMessageDialog(null,"Successfully borrowed");
+                    JOptionPane.showMessageDialog(null,"Successfully borrowed");
                     break;
                 }
             }
+        }
+        else {
+            JOptionPane.showMessageDialog(null,"please select a book");
         }
     }
 

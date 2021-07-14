@@ -14,6 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javax.swing.*;
+import javax.swing.text.View;
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -21,6 +22,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class ManagerController {
+
+  private ViewHandler viewHandler;
 
   private Adapter adapter;
 
@@ -242,7 +245,9 @@ public class ManagerController {
 
 
   //initialization
-  public void init(){
+  public void init(ViewHandler viewHandler){
+    this.viewHandler=viewHandler;
+
     save.setText("Save");
     getAllBooks.setText("Refresh");
     deleteBooks.setText("Del");
@@ -259,6 +264,7 @@ public class ManagerController {
     img4But.setText("Save");
     img5But.setText("Save");
     img6But.setText("Save");
+
     bookStatus.getItems().addAll("Booked","Borrowed","Available");
     artBox.getItems().addAll("Booked","Borrowed","Available");
     img1.getItems().addAll("Booked","Borrowed","Available");
@@ -267,29 +273,46 @@ public class ManagerController {
     img4.getItems().addAll("Booked","Borrowed","Available");
     img5.getItems().addAll("Booked","Borrowed","Available");
     img6.getItems().addAll("Booked","Borrowed","Available");
+
     adapter = new Adapter("library.bin");
     adapter1 = new Adapter("Article.bin");
     adapter2 = new Adapter("CD.bin");
     adapter3 = new Adapter("String.bin");
     adapter4 = new Adapter("StringX.bin");
+
     bookList = adapter.getBookList();
     articleList = adapter1.getArticleList();
     cdList = adapter2.getCDList();
     strings = adapter3.getString();
     stringsX = adapter4.getString();
+
     bookTableView.setEditable(true);
     articleListView.setEditable(true);
+
     bookTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
     bookWriter.setCellValueFactory(new PropertyValueFactory<>("writer"));
     bookReleaseTime.setCellValueFactory(new PropertyValueFactory<>("releaseTime"));
     statusOfBook.setCellValueFactory(new PropertyValueFactory<>("status"));
     isbn.setCellValueFactory(new PropertyValueFactory<>("ISBN"));
+
     getAllBooks();
     getAllArticles();
     setAllCDs();
     changeCDInfo();
     getAllLogs();
     getManagerLogs();
+
+    bookTableView.setRowFactory(bookTableView1 -> {
+      TableRow<Book> row = new TableRow<>();
+      row.setOnMouseClicked(mouseEvent -> {
+        if (mouseEvent.getClickCount() == 2 && !row.isEmpty()){
+          Book book = row.getItem();
+          viewHandler.openDetailView(book);
+        }
+      });
+      return row;
+    });
+
   }
 
 
