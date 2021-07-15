@@ -22,7 +22,7 @@ public class GetInController {
     public void init(ViewHandler viewHandler){
         this.viewHandler=viewHandler;
         librarian.setText("Im librarian");
-        borrow.setText("Borrow book");
+        borrow.setText("Im borrower");
         imageView.setImage(new Image("picture/t.jpeg"));
     }
 
