@@ -288,6 +288,12 @@ public class ManagerController {
     adapter3 = new Adapter("String.bin");
     adapter4 = new Adapter("StringX.bin");
 
+    bookTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+    bookWriter.setCellValueFactory(new PropertyValueFactory<>("writer"));
+    bookReleaseTime.setCellValueFactory(new PropertyValueFactory<>("releaseTime"));
+    statusOfBook.setCellValueFactory(new PropertyValueFactory<>("status"));
+    isbn.setCellValueFactory(new PropertyValueFactory<>("ISBN"));
+
     bookList = adapter.getBookList();
     articleList = adapter1.getArticleList();
     cdList = adapter2.getCDList();
@@ -296,12 +302,6 @@ public class ManagerController {
 
     bookTableView.setEditable(true);
     articleListView.setEditable(true);
-
-    bookTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
-    bookWriter.setCellValueFactory(new PropertyValueFactory<>("writer"));
-    bookReleaseTime.setCellValueFactory(new PropertyValueFactory<>("releaseTime"));
-    statusOfBook.setCellValueFactory(new PropertyValueFactory<>("status"));
-    isbn.setCellValueFactory(new PropertyValueFactory<>("ISBN"));
 
     getAllBooks();
     getAllArticles();
