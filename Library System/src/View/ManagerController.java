@@ -331,14 +331,20 @@ public class ManagerController {
         Book book = new Book(title.getText(),writer.getText(),releaseTime.getText(),
                 bookStatus.getSelectionModel().getSelectedItem().toString(),
                 null,null,null,null,null,ISBN.getText());
-
-        bookList.addBook(book);
-        adapter.addBookList(bookList);
-        stringsX.add(" "+getTime()+":     "+"Manager added a book: "+"<"+book.getTitle()+">");
-        adapter4.addStrings(stringsX);
-        getManagerLogs();
-        getAllBooks();
-        clear();
+        for (int i = 0; i < bookList.getBooks().size(); i++) {
+          if (!book.getTitle().equals(bookList.getBooks().get(i))){
+            bookList.addBook(book);
+            adapter.addBookList(bookList);
+            stringsX.add(" "+getTime()+":     "+"Manager added a book: "+"<"+book.getTitle()+">");
+            adapter4.addStrings(stringsX);
+            getManagerLogs();
+            getAllBooks();
+            clear();
+          }
+          else {
+            JOptionPane.showMessageDialog(null,"This book already exits in system");
+          }
+        }
       }
       else {
         JOptionPane.showMessageDialog(null,"Please select a type");
@@ -448,14 +454,20 @@ public class ManagerController {
         Article article = new Article(artTT.getText(),artWT.getText(),artRelTimeT.getText(),
                 artBox.getSelectionModel().getSelectedItem().toString(),
                 null,null,null,null,null);
-
-        articleList.add(article);
-        adapter1.addArticleList(articleList);
-        stringsX.add(" "+getTime()+":     "+"Manager added a article: "+"<"+article.getTitle()+">");
-        adapter4.addStrings(stringsX);
-        getManagerLogs();
-        getAllArticles();
-        artClear();
+        for (int i = 0; i < bookList.getBooks().size(); i++) {
+          if (!article.getTitle().equals(bookList.getBooks().get(i))){
+            articleList.add(article);
+            adapter1.addArticleList(articleList);
+            stringsX.add(" "+getTime()+":     "+"Manager added a article: "+"<"+article.getTitle()+">");
+            adapter4.addStrings(stringsX);
+            getManagerLogs();
+            getAllArticles();
+            artClear();
+          }
+          else {
+            JOptionPane.showMessageDialog(null,"This article already exits in system");
+          }
+        }
       }
       else {
         JOptionPane.showMessageDialog(null,"please select status");

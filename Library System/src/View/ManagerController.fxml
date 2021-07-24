@@ -59,7 +59,7 @@
                         <TextField fx:id="artTT" layoutX="923.0" layoutY="149.0" promptText="Title" />
                         <TextField fx:id="artWT" layoutX="923.0" layoutY="230.0" promptText="Writer" />
                         <TextField fx:id="artRelTimeT" layoutX="923.0" layoutY="308.0" promptText="ReleaseTime" />
-                        <ChoiceBox fx:id="artBox" layoutX="929.0" layoutY="386.0" prefWidth="150.0" />
+                        <ChoiceBox fx:id="artBox" layoutX="923.0" layoutY="387.0" prefHeight="27.0" prefWidth="157.0" />
                         <Button fx:id="artSave" layoutX="950.0" layoutY="466.0" mnemonicParsing="false" onAction="#addArticle" prefHeight="27.0" prefWidth="108.0" text="Save" />
                         <Button fx:id="artEdit" layoutX="951.0" layoutY="536.0" mnemonicParsing="false" onAction="#changeArticle" prefHeight="27.0" prefWidth="106.0" text="Edit" />
                         <Button fx:id="artDel" layoutX="951.0" layoutY="611.0" mnemonicParsing="false" onAction="#deleteArticle" prefHeight="27.0" prefWidth="105.0" text="Del" />
