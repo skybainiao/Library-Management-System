@@ -347,7 +347,7 @@ public class ManagerController {
         }
       }
       else {
-        JOptionPane.showMessageDialog(null,"Please select a type");
+        JOptionPane.showMessageDialog(null,"Please select a status");
       }
     }
     else {
@@ -470,7 +470,7 @@ public class ManagerController {
         }
       }
       else {
-        JOptionPane.showMessageDialog(null,"please select status");
+        JOptionPane.showMessageDialog(null,"please select a status");
       }
     }
     else {
