@@ -340,11 +340,13 @@ public class ManagerController {
             getManagerLogs();
             getAllBooks();
             clear();
+            break;
           }
           else {
             JOptionPane.showMessageDialog(null,"This book already exits in system");
           }
         }
+
       }
       else {
         JOptionPane.showMessageDialog(null,"Please select a status");
@@ -463,6 +465,7 @@ public class ManagerController {
             getManagerLogs();
             getAllArticles();
             artClear();
+            break;
           }
           else {
             JOptionPane.showMessageDialog(null,"This article already exits in system");
@@ -817,6 +820,8 @@ public class ManagerController {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
     return dateTime.format(formatter);
   }
+
+
 
 
 
