@@ -379,6 +379,7 @@ public class ManagerController {
           stringsX.add(" "+getTime()+":     "+"Manager deleted a book: "+"<"+book.getTitle()+">");
           adapter4.addStrings(stringsX);
           getManagerLogs();
+          break;
         }
       }
     }
@@ -406,6 +407,7 @@ public class ManagerController {
           stringsX.add(" "+getTime()+":     "+"Manager edited a book: "+"<"+book.getTitle()+">");
           adapter4.addStrings(stringsX);
           getManagerLogs();
+          break;
         }
       }
     }
@@ -501,6 +503,7 @@ public class ManagerController {
           stringsX.add(" "+getTime()+":     "+"Manager deleted a book: "+"<"+article.getTitle()+">");
           adapter4.addStrings(stringsX);
           getManagerLogs();
+          break;
         }
       }
     }
@@ -528,6 +531,7 @@ public class ManagerController {
           stringsX.add(" "+getTime()+":     "+"Manager edited a book: "+"<"+article.getTitle()+">");
           adapter4.addStrings(stringsX);
           getManagerLogs();
+          break;
 
         }
       }
