@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class DataInit {
   public static void main(String[] args) throws IOException {
 
-    // TODO: 10/07/2021 Please don't run this class !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     // TODO: 07/07/2021 This is BookDataInit
     Adapter adapter = new Adapter("library.bin");
 
