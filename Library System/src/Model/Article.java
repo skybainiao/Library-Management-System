@@ -29,6 +29,9 @@ public class Article extends Borrower implements Serializable {
         this.ArtReleaseTime = ArtReleaseTime;
     }
 
+
+
+
     public String getReleaseTime() {
         return ArtReleaseTime;
     }
