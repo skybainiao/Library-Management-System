@@ -17,6 +17,8 @@ public class Article extends Borrower implements Serializable {
         this.ArtStatus=ArtStatus;
     }
 
+
+
     public void setStatus(String ArtStatus) {
         this.ArtStatus = ArtStatus;
     }
